@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 
 public class Grid {
-
+    Mesh mesh;
     private Vector3[] vertices;
 
-    public void Generate (ref MeshFilter meshFilter, int xSize, int ySize, ref Mesh mesh) {
+    public Mesh Generate (ref MeshFilter meshFilter, int xSize, int ySize) {
         meshFilter.mesh = mesh = new Mesh();
 		mesh.name = "Procedural Grid";
 
@@ -34,5 +34,6 @@ public class Grid {
 		}
 		mesh.triangles = triangles;
 		mesh.RecalculateNormals();
+        return mesh;
 	}
 }
