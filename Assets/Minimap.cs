@@ -51,7 +51,7 @@ public class Minimap : MonoBehaviour {
         }
         this.mesh.vertices = vec3List;
         mesh.RecalculateBounds();
-        this.transform.localScale = new Vector3(0.01f, 0.01f, 0.01f);
+        this.transform.localScale = new Vector3(0.005f, 0.005f, 0.005f);
 
         //Debug.Log(vec3List.Count);
         //this.transform.GetComponent<Terrain>().terrainData = terrainData;
