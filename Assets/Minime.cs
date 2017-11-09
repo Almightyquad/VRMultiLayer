@@ -40,7 +40,17 @@ public class Minime : MonoBehaviour {
                     headObject.parent.transform.position = new Vector3(headObject.parent.transform.position.x, rayHit.transform.position.y, headObject.parent.transform.position.z);
                 }
             }
-            
+            if (!rayHit.collider)
+            {
+                ray.direction = Vector3.up;
+                Physics.Raycast(ray, out rayHit);
+                if (rayHit.collider)
+                {
+                    headObject.parent.transform.position = new Vector3(headObject.parent.transform.position.x, rayHit.transform.position.y, headObject.parent.transform.position.z);
+                }
+            }
+
+
         }
         if(!this.GetComponent<VRTK.VRTK_InteractableObject>().IsGrabbed())
         {
