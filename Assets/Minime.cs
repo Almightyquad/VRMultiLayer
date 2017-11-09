@@ -30,6 +30,17 @@ public class Minime : MonoBehaviour {
         {
             headObject.parent.transform.position = this.getTruePosition();
             Debug.Log("isbeinggrabbed O:O " + this.getTruePosition());
+            Ray ray = new Ray(headObject.parent.transform.position, Vector3.down);
+            RaycastHit rayHit = new RaycastHit();
+            Physics.Raycast(ray, out rayHit);
+            if(rayHit.collider)
+            {
+                if (rayHit.collider.tag == "Terrain")
+                {
+                    headObject.parent.transform.position = new Vector3(headObject.parent.transform.position.x, rayHit.transform.position.y, headObject.parent.transform.position.z);
+                }
+            }
+            
         }
         if(!this.GetComponent<VRTK.VRTK_InteractableObject>().IsGrabbed())
         {
