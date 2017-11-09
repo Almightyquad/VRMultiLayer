@@ -44,10 +44,14 @@ public class Minime : MonoBehaviour {
             {
                 ray.direction = Vector3.up;
                 Physics.Raycast(ray, out rayHit);
-                if (rayHit.collider)
+                if (rayHit.collider.tag == "Terrain")
                 {
-                    headObject.parent.transform.position = new Vector3(headObject.parent.transform.position.x, rayHit.transform.position.y, headObject.parent.transform.position.z);
+                    if (rayHit.collider)
+                    {
+                        headObject.parent.transform.position = new Vector3(headObject.parent.transform.position.x, rayHit.transform.position.y, headObject.parent.transform.position.z);
+                    }
                 }
+
             }
 
 
