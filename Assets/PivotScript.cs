@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// A pivotscript for the minimap
+/// </summary>
 public class PivotScript : MonoBehaviour {
     Transform headObject;
     Transform minimap;
@@ -13,6 +15,9 @@ public class PivotScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+        //This pretty much just keeps the minimap at the correct rotation and distance from player, Somewhat hardcoded atm.
+
         minimap.Rotate(new Vector3(-90f, 0f, 0f));
         float rad = 0.2f;
         Vector3 eulerAngleRot = headObject.rotation.eulerAngles;
