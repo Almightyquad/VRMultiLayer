@@ -21,4 +21,12 @@
   publisher = {University of Texas Press},
 }
 
+@Misc{VRTK,
+  title    = {VRTK - Virtual Reality Toolkit - [ VR Toolkit ]},
+  year     = {2017},
+  note     = {Accessed 14. November 2017},
+  keywords = {VR},
+  url      = {https://www.assetstore.unity3d.com/en/#!/content/64131},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}
