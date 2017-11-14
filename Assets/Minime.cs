@@ -67,7 +67,7 @@ public class Minime : MonoBehaviour {
         }
 
 	}
-    //The mesh size if 0.6, that would be 500 / (5/6 * 1000). 500 being the terrain scale
+    //The mesh size if 0.6, that would be 500 / (500 / meshScale). 500 being the terrain scale
     // (5/6 * 1000) being used to divide by to get the aspect ratio from 500 to 0.6
     //The range of the terrain goes from vec3(-250, 0, -250) to vec3(250,0,250)
     private Vector3 getScaledPosition()
@@ -78,6 +78,6 @@ public class Minime : MonoBehaviour {
     private Vector3 getTruePosition()
     {
         Vector3 tempVec3 = (this.transform.position - minimap.localPosition - pivotPoint.position - this.halfMeshScale) * (5f / 6f * 1000f);
-        return new Vector3(tempVec3.x, tempVec3.y * (5f / 6f * 1000f), tempVec3.z);
+        return new Vector3(tempVec3.x, tempVec3.y + 0.1f, tempVec3.z);
     }
 }
