@@ -21,4 +21,21 @@
   publisher = {University of Texas Press},
 }
 
+@Misc{VRTK,
+  author   = {Sysdia Solutions Ltd},
+  title    = {VRTK - Virtual Reality Toolkit - [ VR Toolkit ]},
+  year     = {2017},
+  note     = {Accessed 14. November 2017},
+  keywords = {VR},
+  url      = {https://www.assetstore.unity3d.com/en/#!/content/64131},
+}
+
+@Misc{steamVRPlugin,
+  author = {Valve},
+  title  = {S},
+  year   = {2017},
+  note   = {Accessed 14. November 2017},
+  url    = {https://www.assetstore.unity3d.com/en/#!/content/32647},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}

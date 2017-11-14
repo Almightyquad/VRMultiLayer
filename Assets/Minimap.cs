@@ -52,7 +52,7 @@ public class Minimap : MonoBehaviour {
             for (int j = 0; j < 129; j++)
             {
                 tempCount = (i * 129) + j;
-                vec3List[tempCount] = new Vector3(vec3List[tempCount].x, vec3List[tempCount].y, -heights[i, j] * 200);
+                vec3List[tempCount] = new Vector3(vec3List[tempCount].x, vec3List[tempCount].y, -heights[i, j] * 150);
             }
             //Debug.Log(vec3List[tempCount]);
             //vec3List[i] = 

@@ -21,9 +21,7 @@ public class Minime : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        //The mesh size if 0.6, that would be 500 / (5/6 * 1000). 500 being the terrain scale
-        // (5/6 * 1000) being used to divide by to get the aspect ratio from 500 to 0.6
-        //The range of the terrain goes from vec3(-250, 0, -250) to vec3(250,0,250)
+        
         //this.transform.rotation = headObject.transform.rotation;
         if(this.GetComponent<VRTK.VRTK_InteractableObject>().IsGrabbed())
         {
@@ -35,22 +33,24 @@ public class Minime : MonoBehaviour {
             {
                 if (rayHit.collider.tag == "Terrain")
                 {
-                    headObject.parent.transform.position = new Vector3(headObject.parent.transform.position.x, rayHit.transform.position.y, headObject.parent.transform.position.z);
+                    headObject.parent.transform.position = new Vector3(headObject.parent.transform.position.x, rayHit.point.y + 2f, headObject.parent.transform.position.z);
                 }
             }
             if (!rayHit.collider)
             {
                 ray.direction = Vector3.up;
                 Physics.Raycast(ray, out rayHit);
-                if (rayHit.collider.tag == "Terrain")
+                
+                if (rayHit.collider)
                 {
-                    if (rayHit.collider)
+                    if (rayHit.collider.tag == "Terrain")
                     {
-                        headObject.parent.transform.position = new Vector3(headObject.parent.transform.position.x, rayHit.transform.position.y, headObject.parent.transform.position.z);
+                        headObject.parent.transform.position = new Vector3(headObject.parent.transform.position.x, rayHit.point.y + 2f, headObject.parent.transform.position.z);
                     }
                 }
 
             }
+            this.transform.position = getScaledPosition();
 
 
         }
@@ -61,8 +61,15 @@ public class Minime : MonoBehaviour {
         }
         this.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
 
-	}
+        if(headObject.parent.transform.position.x < -1000 || headObject.parent.transform.position.x > 1000 || headObject.parent.transform.position.z < -1000 || headObject.parent.transform.position.z > 1000)
+        {
+            headObject.parent.position = Vector3.zero;
+        }
 
+	}
+    //The mesh size if 0.6, that would be 500 / (5/6 * 1000). 500 being the terrain scale
+    // (5/6 * 1000) being used to divide by to get the aspect ratio from 500 to 0.6
+    //The range of the terrain goes from vec3(-250, 0, -250) to vec3(250,0,250)
     private Vector3 getScaledPosition()
     {
         return ((headObject.position) / (5f / 6f * 1000f)) + minimap.localPosition + pivotPoint.position + this.halfMeshScale;
@@ -71,6 +78,6 @@ public class Minime : MonoBehaviour {
     private Vector3 getTruePosition()
     {
         Vector3 tempVec3 = (this.transform.position - minimap.localPosition - pivotPoint.position - this.halfMeshScale) * (5f / 6f * 1000f);
-        return new Vector3(tempVec3.x, tempVec3.y + 0.05f * (5f / 6f * 1000f), tempVec3.z);
+        return new Vector3(tempVec3.x, tempVec3.y * (5f / 6f * 1000f), tempVec3.z);
     }
 }
