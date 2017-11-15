@@ -48,4 +48,18 @@
   url   = {https://dl.acm.org/ft_gateway.cfm?id=3102082&ftid=1901959&dwn=1&CFID=1005837687&CFTOKEN=72547110},
 }
 
+@Article{fagerholt2009beyond,
+  author    = {Fagerholt, Erik and Lorentzon, Magnus},
+  title     = {Beyond the HUD-user interfaces for increased player immersion in FPS games},
+  year      = {2009},
+  publisher = {Chalmers University of Technology},
+}
+
+@Misc{deadspace,
+  author = {EA},
+  title  = {Dead Space},
+  note   = {Accessed 15. November 2017},
+  url    = {https://www.ea.com/games/dead-space/dead-space},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}
