@@ -9,6 +9,7 @@ public class Minime : MonoBehaviour {
     Vector3 halfMeshScale;
     Transform minimap;
     Transform pivotPoint;
+    bool test = false;
 	// Use this for initialization
 	void Start () {
         //This is a stupid line that should be fixed. No need to look for the parent parent parent to find the Eye.
@@ -50,11 +51,11 @@ public class Minime : MonoBehaviour {
                 }
 
             }
-            this.transform.position = getScaledPosition();
-
+            //this.transform.position = getScaledPosition();
 
         }
-        if(!this.GetComponent<VRTK.VRTK_InteractableObject>().IsGrabbed())
+        //if(!this.GetComponent<VRTK.VRTK_InteractableObject>().IsGrabbed())
+        else
         {
             this.transform.position = getScaledPosition();
             this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y + 0.05f, this.transform.position.z);
@@ -65,7 +66,6 @@ public class Minime : MonoBehaviour {
         {
             headObject.parent.position = Vector3.zero;
         }
-
 	}
     //The mesh size if 0.6, that would be 500 / (500 / meshScale). 500 being the terrain scale
     // (5/6 * 1000) being used to divide by to get the aspect ratio from 500 to 0.6
